@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%230b0820%22/%3E%3Crect x=%2213%22 y=%224%22 width=%226%22 height=%2224%22 rx=%223%22 fill=%22%2322e6ff%22 transform=%22rotate(18 16 16)%22/%3E%3C/svg%3E">
+  <title>活動總覽｜動漫社活動宣傳網站</title>
+  <meta name="description" content="課堂作業：依活動企劃書產生的活動宣傳網站總覽。">
+  <meta property="og:title" content="活動總覽｜動漫社活動宣傳網站">
+  <meta property="og:description" content="課堂作業：依活動企劃書產生的活動宣傳網站總覽。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f4fa;
+      --surface: #ffffff;
+      --text: #1d1b2c;
+      --muted: #5a5770;
+      --border: #dddbe8;
+      --notice-bg: #fff4d6;
+      --notice-text: #5c4300;
+      --radius: 14px;
+      --font-body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+
+      /* 各活動卡片的主題色（取自各活動網站的主題變數） */
+      --guangyongji-bg: #0b0820;
+      --guangyongji-text: #eef0ff;
+      --guangyongji-muted: #a9a6c9;
+      --guangyongji-primary: #22e6ff;
+      --guangyongji-secondary: #ff3fb4;
+      --guangyongji-accent: #5dffb4;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.7;
+    }
+    .notice {
+      background: var(--notice-bg);
+      color: var(--notice-text);
+      text-align: center;
+      font-weight: 700;
+      font-size: .875rem;
+      padding: 8px 16px;
+    }
+    .container { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+    header { padding: 48px 0 24px; }
+    h1 { margin: 0 0 8px; font-size: clamp(1.75rem, 5vw, 2.5rem); font-weight: 900; }
+    .intro { margin: 0; color: var(--muted); }
+    main { padding-bottom: 64px; }
+    .event-list {
+      list-style: none;
+      margin: 24px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 20px;
+    }
+    .event-card {
+      display: block;
+      height: 100%;
+      border-radius: var(--radius);
+      overflow: hidden;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .event-card:hover { box-shadow: 0 10px 28px rgba(29, 27, 44, .14); }
+    .event-card:focus-visible { outline: 3px solid var(--text); outline-offset: 3px; }
+    .event-card-visual {
+      padding: 28px 22px;
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .event-card-name { margin: 0; font-size: 1.75rem; font-weight: 900; letter-spacing: .06em; }
+    .event-card-sub { margin: 0; font-size: .9375rem; }
+    .event-card-body { padding: 18px 22px 22px; }
+    .event-card-body dl { margin: 0; display: grid; gap: 4px; }
+    .event-card-body div { display: flex; gap: 12px; }
+    .event-card-body dt { flex: none; min-width: 3em; color: var(--muted); font-weight: 700; }
+    .event-card-body dd { margin: 0; }
+    .event-card-swatches { display: flex; gap: 6px; margin-top: 14px; }
+    .event-card-swatches span { width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--border); }
+    .event-card-more { margin: 14px 0 0; font-weight: 700; }
+
+    .theme-guangyongji .event-card-visual {
+      background:
+        radial-gradient(ellipse at 80% 20%, rgba(255, 63, 180, .35), transparent 60%),
+        radial-gradient(ellipse at 10% 90%, rgba(34, 230, 255, .3), transparent 60%),
+        var(--guangyongji-bg);
+      color: var(--guangyongji-text);
+    }
+    .theme-guangyongji .event-card-name { text-shadow: 0 0 8px var(--guangyongji-primary); }
+    .theme-guangyongji .event-card-sub { color: var(--guangyongji-muted); }
+    .swatch-guangyongji-bg { background: var(--guangyongji-bg); }
+    .swatch-guangyongji-primary { background: var(--guangyongji-primary); }
+    .swatch-guangyongji-secondary { background: var(--guangyongji-secondary); }
+    .swatch-guangyongji-accent { background: var(--guangyongji-accent); }
+
+    footer { border-top: 1px solid var(--border); padding: 24px 0 40px; color: var(--muted); font-size: .875rem; }
+
+    @media (min-width: 640px) {
+      .container { padding: 0 24px; }
+      .event-list { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .event-list { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .event-card:hover { transform: translateY(-3px); }
+    }
+  </style>
+</head>
+<body>
+  <p class="notice">本站所有活動皆為課堂作業之模擬企劃，並非真實活動。</p>
+  <header>
+    <div class="container">
+      <h1>活動總覽</h1>
+      <p class="intro">依活動企劃書整理的參加者宣傳網站。點選卡片進入各活動頁面。</p>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <ul class="event-list">
+        <li>
+          <a class="event-card theme-guangyongji" href="events/guangyongji-2027/index.html">
+            <div class="event-card-visual">
+              <p class="event-card-name">光踴祭</p>
+              <p class="event-card-sub">跨校動漫社聯合成果發表會（活動名稱暫定）</p>
+            </div>
+            <div class="event-card-body">
+              <dl>
+                <div><dt>日期</dt><dd>2027/1/23（六）</dd></div>
+                <div><dt>地點</dt><dd>臺北市立建國高級中學活動中心</dd></div>
+                <div><dt>主題</dt><dd>neon 霓虹螢光</dd></div>
+              </dl>
+              <div class="event-card-swatches" aria-hidden="true">
+                <span class="swatch-guangyongji-bg"></span>
+                <span class="swatch-guangyongji-primary"></span>
+                <span class="swatch-guangyongji-secondary"></span>
+                <span class="swatch-guangyongji-accent"></span>
+              </div>
+              <p class="event-card-more">查看活動網站 →</p>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <p>課堂作業（生成式 AI Week 9）。本站所有活動皆為模擬企劃，並非真實活動。</p>
+    </div>
+  </footer>
+</body>
+</html>
