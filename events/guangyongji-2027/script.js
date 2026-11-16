@@ -1,5 +1,5 @@
 /* 光踴祭 guangyongji-2027 — 互動功能
-   沒有 JavaScript 時，頁面所有資訊仍可完整閱讀（RULE 8）。 */
+   沒有 JavaScript 時，頁面所有資訊仍可完整閱讀（CLAUDE.md 9）。 */
 (function () {
   "use strict";
 

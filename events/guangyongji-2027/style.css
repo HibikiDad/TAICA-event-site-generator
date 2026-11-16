@@ -1,9 +1,9 @@
 /* =========================================================
    光踴祭 guangyongji-2027
-   主題：neon 霓虹螢光（RULE 7.1），強調色依看板娘改為薄荷綠
+   主題：neon 霓虹螢光（CLAUDE.md 7.1），強調色依看板娘改為薄荷綠
    ========================================================= */
 :root {
-  /* RULE 7.1 主題變數 */
+  /* CLAUDE.md 7.1 主題變數 */
   --bg: #0b0820;
   --surface: #16112f;
   --text: #eef0ff;
@@ -225,7 +225,7 @@ ul, ol { margin: 0; padding: 0; }
   html:not(.js) .site-nav { width: 100%; }
 }
 
-/* ---------- 狀態標籤（RULE 5.3 / 9） ---------- */
+/* ---------- 狀態標籤（CLAUDE.md 5.3 / 9） ---------- */
 .status-tag {
   display: inline-block;
   vertical-align: middle;
